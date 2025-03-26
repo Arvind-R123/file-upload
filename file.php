@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
   if ($check !== false) {
     echo "File is an image - " . $check["mime"] . ".";
     $upload = 1;
-
+    
   } else {
     echo "File is not an image.";
     $upload = 0;
@@ -21,7 +21,7 @@ if (isset($_POST["submit"])) {
 
 
 if (file_exists($target_file)) {
-  echo "File is already exists.";
+  echo "File already exists.";
   $upload = 0;
 }
 
@@ -47,6 +47,6 @@ if ($upload == 0) {
   if (move_uploaded_file($_FILES["newfile"]["tmp_name"], $target_file)) {
     echo "The file " . htmlspecialchars(basename($_FILES["newfile"]["name"])) /*. " has been uploaded."*/ . header("Location:./Welcome.html");;
   } else {
-    echo "Not uploading your file.";
+    echo "Your file is not uploading.";
   }
 }
